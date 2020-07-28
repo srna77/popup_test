@@ -64,8 +64,6 @@
 						var valueList = {
 							'P_History': getCheckedList(document.getElementsByName('historys'), document.getElementById('history_txt')),
 						};
-												
-						//window.parent.postMessage({ childData : 'test data' }, 'http://192.168.10.78:8080/depl/test/viewer/viewer.html');
 						
 						console.log(parent.viewer);
 						//cxOpener.set(valueList);
@@ -91,6 +89,10 @@
 					//}
 					//self.close();
 				}
+				
+				document.getElementById('submit2').onclick = function() {
+					window.parent.postMessage({ childData : 'test data' }, 'http://192.168.10.78:8080/depl/test/viewer/viewer.html');
+				}
 			};
 		</script>
 	</head>
@@ -115,7 +117,8 @@
 						
 				</div>
 			</fieldset>
-				<button type="button" id="submit" class="pure-button pure-button-primary" >적용</button>
+				<button type="button" id="submit" class="pure-button pure-button-primary" >parent적용</button>
+				<button type="button" id="submit2" class="pure-button pure-button-primary" >crossdomain적용</button>
 		</form>
 	</body>
 </html>
