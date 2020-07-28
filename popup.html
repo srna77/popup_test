@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html style="margin: 0; height: 100%">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<meta name="apple-touch-fullscreen" content="yes">
+
+		<script src="js/viewer/jquery-1.11.0.min.js"></script>
+		<script src="js/crownix-formfield.min.js"></script>
+		<script>
+			$(document).ready(function(){
+				m2soft.crownix.Util.ActionEvents = {
+				start: 'mousedown',
+				move: 'mousemove',
+				end: 'mouseup',
+				out: 'mouseout',
+				over: 'mouseover'
+			};
+				//var form = window.opener.viewer.getForm('form1');
+				var form = parent.viewer.getForm('form1');
+				var group = form.getSignGroup('group');
+				var sign = new m2soft.crownix.FormField.Sign('crownix-sign', group.getGroupInfo());
+				
+			    $("#comfirm").click(function(){
+			    	value = sign.getValue();
+					group.setValue(value);
+			    });
+			    
+			    
+			
+			});
+		</script>
+	</head>
+	<body style="margin: 0; height: 100%">
+			<button id="comfirm">확인</button>
+			<div id="crownix-sign" style="height: 500px;"></div>
+		</div>
+	</body>
+</html>
