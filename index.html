@@ -91,7 +91,8 @@
 				}
 				
 				document.getElementById('submit2').onclick = function() {
-					window.parent.postMessage({ childData : 'test data' }, 'http://192.168.10.78:8080/depl/test/viewer/viewer.html');
+					//window.parent.postMessage({ childData : 'test data' }, 'http://192.168.10.78:8080/depl/test/viewer/viewer.html');
+					window.parent.postMessage({ childData : 'test data' });
 				}
 			};
 		</script>
