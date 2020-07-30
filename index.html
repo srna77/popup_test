@@ -38,7 +38,7 @@
 						cxOpener.set(valueList);
 						self.close();
 					} else {
-						window.parent.postMessage({ 'func' : ['closePopup'], 'cxOpener': {'set': valueList}}, location.origin);
+						window.parent.postMessage({ 'func' : ['closePopup'], 'cxOpener': {'set': valueList}}, "*");
 					}
 				}
 			};
