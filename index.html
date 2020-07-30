@@ -34,6 +34,7 @@
 						'P_History': getCheckedList(document.getElementsByName('historys'), document.getElementById('history_txt')),
 				};
 					if(window.opener) {
+						document.domain = '*';
 						cxOpener = window.opener.cxOpener;
 						cxOpener.set(valueList);
 						self.close();
