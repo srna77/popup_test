@@ -53,7 +53,7 @@
 			$(window).on("message onmessage", function(e) {
 				var data = e.originalEvent.data;
 				if(data.setText) {
-					document.getElementById(setText.id).value = setText.value;
+					document.getElementById(data.setText.id).value = data.setText.value;
 				}
 			});
 		</script>
