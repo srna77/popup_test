@@ -49,6 +49,12 @@
 					window.external.SelectTextField('history_txt', document.getElementById('history_txt').type, document.getElementById('history_txt').value);
 				}
 			}
+				
+			$(window).on("message onmessage", function(e) {
+				if(data.setText) {
+					document.getElementById(setText.id).value = setText.value;
+				}
+			});
 		</script>
 	</head>
 	<body style="padding:10px; height:100%">
