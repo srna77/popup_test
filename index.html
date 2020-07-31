@@ -51,6 +51,7 @@
 			}
 				
 			$(window).on("message onmessage", function(e) {
+				var data = e.originalEvent.data;
 				if(data.setText) {
 					document.getElementById(setText.id).value = setText.value;
 				}
