@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html style="margin:0;height:100%">
 	<head> 
 		<meta charset="utf-8">
@@ -7,7 +7,7 @@
 		<script src="js/viewer/jquery-1.11.0.min.js"></script>
 		<!--<script src="../js/jquery-1.11.0.min.js"></script>
 		<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.4.2/pure-min.css">-->
-			<script>
+		<script>
 			function getCheckedList(chkList, history_txt)
 			{
 				var result = "";
@@ -23,25 +23,28 @@
 					result += "," + history_txt.value;
 				return result;
 			};
+						
 			window.onload = function() {
-				//window.onerror = function(errMsg, url, lineNumber, column, errorObj){
-				//	$('#err').text($('#err').text() + errMsg, url, lineNumber, column, errorObj);
-				//};
-				//document.domain = 'github.io';		
-				document.getElementById('submit').onclick = function() {
-					var cxOpener;
-					var valueList = {
-						'P_History': getCheckedList(document.getElementsByName('historys'), document.getElementById('history_txt')),
+				window.onerror = function(errMsg, url, lineNumber, column, errorObj){
+					$('#err').text($('#err').text() + errMsg, url, lineNumber, column, errorObj);
 				};
+				document.getElementById('submit').onclick = function() {
+					var valueList = {
+							'P_History': getCheckedList(document.getElementsByName('historys'), document.getElementById('history_txt')),
+					};
 					if(window.opener) {
-						//document.domain = 'github.com';
+						//document.domain = '*';
 						cxOpener = window.opener.cxOpener;
 						cxOpener.set(valueList);
 						self.close();
 					} else {
-						window.parent.postMessage({ 'func' : ['closePopup'], 'cxOpener': {'set': valueList}}, "*");
+						window.parent.postMessage({cxOpener:{'set':valueList}}, '*');
+						//parent.cxOpener.set(valueList);
+						//parent.cxMirroringOverlay.remove();
+						//parent.cxMirroringPopup.remove();
 					}
-				}
+				};
+				
 			};
 			
 			function focusText() {
@@ -49,17 +52,13 @@
 					window.external.SelectTextField('history_txt', document.getElementById('history_txt').type, document.getElementById('history_txt').value);
 				}
 			}
-				
-			$(window).on("message onmessage", function(e) {
-				var data = e.originalEvent.data;
-				if(data.setText) {
-					document.getElementById(data.setText.id).value = data.setText.value;
-				}
-			});
-		</script>
+			
+ 			</script>
 	</head>
 	<body style="padding:10px; height:100%">
-	<img src="med.jpg" width="80" height="80"/> 과거력 체크<br/>
+		<div id="err" style="padding:10px; height:20%"></div>
+		
+	 과거력 체크<br/>
 		
 		<form class="pure-form pure-form-stacked">
 			<fieldset>
