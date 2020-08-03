@@ -47,6 +47,13 @@
 				
 			};
 			
+			$(window).on("message onmessage", function(e) {
+				var data = e.originalEvent.data;
+				if(data.setText) {
+					document.getElementById(data.setText.id).value = data.setText.value;
+				}
+			});
+			
 			function focusText() {
 				if(!window.opener) {
 					window.external.SelectTextField('history_txt', document.getElementById('history_txt').type, document.getElementById('history_txt').value);
