@@ -53,13 +53,7 @@
 					document.getElementById(data.setText.id).value = data.setText.value;
 				}
 			});
-			
-			function focusText() {
-				if(!window.opener) {
-					window.external.SelectTextField('history_txt', document.getElementById('history_txt').type, document.getElementById('history_txt').value);
-				}
-			}
-			
+					
  			</script>
 	</head>
 	<body style="padding:10px; height:100%">
@@ -81,7 +75,7 @@
 					    <input type="checkbox" name="historys" value="류마티스">류마티스</input><br/>
 					    <input type="checkbox" name="historys" value="현재 임신과 수유">현재 임신과 수유</input><br/>
 						<label for=history_txt>기타</label> 
-					    <input type="text" id="history_txt" value="" onfocus="focusText();"/>
+					    <input type="text" id="history_txt" value=""/>
 						
 				</div>
 			</fieldset>
