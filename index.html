@@ -46,6 +46,14 @@
 					}
 				};
 				
+				document.getElementById('scan').onclick = function() {
+					var callb = function(e) {
+						for(var i = 0; i < JSON.parse(e).images.length; i++) {
+							$("<img>").attr('src', JSON.parse(e).images[i]).appendTo('body');
+						}
+					};
+					window.external.ScanStart(JSON.stringify({'format':'tif'}), callb);
+				};
 			};
 			
 			$(window).on("message onmessage", function(e) {
@@ -81,6 +89,7 @@
 				</div>
 			</fieldset>
 				<button type="button" id="submit" class="pure-button pure-button-primary" >적용</button>
+				<button type="button" id="scan" class="pure-button pure-button-primary" >스캔</button>
 		</form>
 	</body>
 </html>
