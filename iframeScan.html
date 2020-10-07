@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html style="margin: 0; height: 100%">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<meta name="apple-touch-fullscreen" content="yes">
+		<script src="../../js/jquery-1.11.0.js"></script>
+		<script>
+		  function scan() {
+		  	var attr = {
+		  		'format':'tif',		// 스캔 저장할 이미지포맷 (기본값을 true)
+		  		//'showUI':true		// UI보이기 설정(기본값은 false)
+		  	};
+		  	var callback = function(e) {		// e는 항상 배열로 리턴함
+				for(var i = 0; i < e.length; i++) {
+					$("<img>").attr('src', e[i]).appendTo('body');
+				}
+		  	};
+		  	window.external.ScanStart(attr, callback);
+		  }
+ </script>
+	</head>
+	<body style="margin: 0; height: 100%">
+		<button onclick="scan();">스캔</button>
+	</body>
+</html>
